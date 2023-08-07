@@ -1,0 +1,40 @@
+                                                        Chat Server and Client Project 
+
+
+*Overview
+This project consists of a chat server and client application, where multiple clients can connect to the server and communicate with each other in 
+real-time. The communication is handled using WebSockets, and the entire project is built using Python's asyncio and websockets libraries.
+
+*Server
+The server is responsible for handling incoming client connections and managing the communication between them. It provides the following functionalities:
+
+1.Client Connection Management: Handles clients joining and leaving the chat.
+2.Timestamping: Attaches a timestamp to messages and various events (e.g., when a user joins or leaves).
+3.Message Broadcasting: Distributes messages from one client to all other clients.
+4.Connection Monitoring: Monitors client connections and handles disconnections gracefully.
+
+The server code is organized into the main coroutine handle_client, which manages each client's connection, receives messages, and sends them to all other connected clients.
+
+*Client
+The client application allows users to connect to the chat server and send messages to other clients. It provides the following functionalities:
+
+1.User Input Handling: Takes username and message input from the user.
+2.Message Sending: Sends messages to the server, which then broadcasts them to other clients.
+3.Message Receiving: Continuously receives and displays messages from other clients.
+4.Disconnection Handling: Handles disconnection from the server gracefully.
+
+The client code is split into three main parts: receive_messages to handle incoming messages from the server, input_message to take user input, and chat_client to manage the overall client logic including connecting to the server.
+
+*Usage
+Server: Run the server script to start the server on localhost port 8765.
+Client: Multiple clients can connect to the server by running the client script and providing a username.
+
+*Communication Protocol
+Joining: A client sends its username upon joining.
+Messaging: Clients send and receive simple text messages.
+Leaving: A message is broadcasted to all clients when someone leaves the chat.
+
+*Conclusion
+This project provides a simple but functional chat application allowing real-time communication between clients through a centralized server. 
+It demonstrates the use of async programming and WebSockets in Python and can be extended further to add additional features like private messaging,
+file sharing, or authentication.
